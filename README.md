@@ -18,7 +18,7 @@ What makes this program unique is that it can solve the puzzle no matter the con
 For example: 
 1) The classic constraints are (1) 3 total missionaries (2) 3 total cannibals and (3) 2 max inividuals in boat.
 2) Custom constraints can be (1) 4 total missionaries (2) 4 total cannibals and (3) 3 max individuals in boat.
-The program can solve both constraints with ease.
+
 			 
 Not only does the program finds the solution, it finds the lowest number of moves it takes to be solved
 and prints out every solution with that many moves.
