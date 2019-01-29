@@ -28,20 +28,20 @@ public class Main
 	boolean branch = false;
 	public int x;
 	int Level;
-	static boolean showLevels = false;  // Prints each level 
+	static boolean showLevels = false;	// Prints each level 
 	static boolean showDeletedDuplicates = false; // Prints each level before duplicates are deleted (won't do anything if showLevels is false)
 	int prevs;
 	
 	//Used to repeat characters
-    public static String repeat(int count, String with) {
-        return new String(new char[count]).replace("\0", with);
-    }   
-    
+	public static String repeat(int count, String with) {
+		return new String(new char[count]).replace("\0", with);
+	}	
+	
 	// Used to print any state.
 	// Also used to check for solution
 	// Printing is triggered by assigning x to 1
-    public void printState(StateNode state)
-    {
+	public void printState(StateNode state)
+	{
 		if(state != null && x == 1){
 			int boat = state.getBoat();
 			int ms = state.getStartMis();
@@ -64,7 +64,7 @@ public class Main
 			System.out.print("[ " + repeat(ms, "M ") + repeat(cs, "C ") + repeat(startFill, "_ ") + "] " + s + "~~~~ " + t + "[ " + repeat(targetFill, "_ ") + repeat(mt, "M ") + repeat(ct, "C ") + "]");
 			if(state.canMove > 0 || state.misMove > 0)
 				System.out.println((side.equals("right") ? " ------> " : " <------ ") + cMove + conjunction + mMove + " went to the " + side + " of the river.");
-			else{System.out.println("         " + maxMis + " Missionaries and " + maxCan + " Cannibals rest on the left side of the river.");}
+			else{System.out.println("		  " + maxMis + " Missionaries and " + maxCan + " Cannibals rest on the left side of the river.");}
 		}
 		else if(state.IsGoal()){Level = state.getLevel(); solStates.add(state);}
 	}
@@ -133,7 +133,7 @@ public class Main
 		}
 	}
 		
-    /*
+	/*
 	For method Combine: 
 	
 	Used to find and return list of all routes found in tree. List used to print solutions.
@@ -199,18 +199,18 @@ public class Main
 		
 	//Finds all successors to a state and puts all legal ones in a list.
 	//ei, all possible ways you can move the cannibals and missionaries legally from the current state
-    public List<StateNode> Successions(StateNode state)
-    {
+	public List<StateNode> Successions(StateNode state)
+	{
 		x = 0;
 		int ms = 0;
-        int cs = 0;
-        int mt = 0;
-        int ct = 0;
-        
-        //Makes list of successors for the state
-        List<StateNode> stateList = state.findSuccessors();
+		int cs = 0;
+		int mt = 0;
+		int ct = 0;
+		
+		//Makes list of successors for the state
+		List<StateNode> stateList = state.findSuccessors();
 		List<StateNode> stateList2 = new List<StateNode>();
-        
+		
 		stateList.First();
 		
 		//Makes copy of list without nulls
@@ -356,10 +356,10 @@ public class Main
 		return findAnswer(nextLevel);
 	}
 		
-    public static void main(String[] args)
-    {
+	public static void main(String[] args)
+	{
 		//Initial State and initial level
-        StateNode state = new StateNode(maxMis, maxCan, 0, 0, 0, 1);
+		StateNode state = new StateNode(maxMis, maxCan, 0, 0, 0, 1);
 		
 		if(showLevels){
 			Main main = new Main();
@@ -369,7 +369,7 @@ public class Main
 			System.out.println("\n\n");
 			main.x = 0;
 			}
-        
+		
 		//Creates successors for the initial state, making level 2
 		List<StateNode> stateList = new Main().Successions(state);
 		
@@ -388,29 +388,3 @@ public class Main
 		new Main().findAnswer(stateList);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
