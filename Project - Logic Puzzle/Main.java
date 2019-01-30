@@ -10,7 +10,7 @@ If maxMis, maxCan, and boatCap values cause the program to reach an infinite loo
 If there is no answer, you can increase the boatCap value in the StateNode class and/or make maxCan <= maxMis. 
 
 NOTE:	A used class is called List<Type>, which is to not to be confused with the builtin class List<Type>.
-		The class I use of that name is a custom Linked List located in StacksQueues.
+	The class I use of that name is a custom Linked List located in StacksQueues.
 */
 
 import StacksQueues.List;
