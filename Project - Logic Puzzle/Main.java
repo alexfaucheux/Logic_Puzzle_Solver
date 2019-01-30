@@ -39,7 +39,7 @@ public class Main
 	
 	/*
 	A "state" refers to current state of the puzzle.
-	ei, the root state (or initial state) is 
+	ie, the root state (or initial state) is 
 	[M M M C C C] v~~~ [_ _ _ _ _ _]
 	*/
 	
@@ -85,9 +85,7 @@ public class Main
 			List<StateNode> list = routes.get(i);
 			list.First();
 			for(int k=0; k<list.GetSize(); k++, list.Next())
-			{
 				printState(list.GetValue());
-			}
 		}
 	}
 	
@@ -103,7 +101,7 @@ public class Main
 		// States traversed are added to list.
 		// State traversal stops when root state is reached
 		// or when it reaches a fork.
-		// ei, the current state has multiple links.
+		// ie, the current state has multiple links.
 		while(state.getLevel() != 1)
 		{
 			stateList.InsertBefore(state);
@@ -145,8 +143,8 @@ public class Main
 	Used to find and return list of all routes found in tree. List used to print solutions.
 	
 	Takes two arguments: "leaves" and "root", both of which are linked list of states.
-	root == list of states; leaves == list of leaves linked to the last state added to "root".
-	This method takes the initial "root states" and "leaves" to create and return a list of all routes
+	"root" == list of states; "leaves" == list of leaves linked to the last state added to the list of root states.
+	This method takes the initial "root" states and "leaves" to create and return a list of all routes
 	that lead to the solution.
 	   
 	NOTE: "root" initially starts as list of root states.
@@ -192,7 +190,7 @@ public class Main
 	}
 		
 	//Finds all successors to a state and puts all legal ones in a list.
-	//ei, all possible ways you can move the cannibals and missionaries legally from the current state
+	//ie, all possible ways you can move the cannibals and missionaries legally from the current state
 	public List<StateNode> Successions(StateNode state)
 	{
 		x = 0;
