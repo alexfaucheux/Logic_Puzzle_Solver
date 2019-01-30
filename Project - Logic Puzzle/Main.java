@@ -9,8 +9,8 @@ If you change the values for maxMis, maxCan, and/or boatCap, you can change the 
 If maxMis, maxCan, and boatCap values cause the program to reach an infinite loop, there is no answer! (the program will stop)
 If there is no answer, you can increase the boatCap value in the StateNode class and/or make maxCan <= maxMis. 
 
-A used class is called List<Type>, which is to not to be confused with the builtin class List<Type>.
-The class I use of that name is a custom Linked List located in StacksQueues.
+NOTE:	A used class is called List<Type>, which is to not to be confused with the builtin class List<Type>.
+		The class I use of that name is a custom Linked List located in StacksQueues.
 */
 
 import StacksQueues.List;
@@ -36,6 +36,12 @@ public class Main
 	public static String repeat(int count, String with) {
 		return new String(new char[count]).replace("\0", with);
 	}	
+	
+	/*
+	A "state" refers to current state of the puzzle.
+	ei, the root state (or initial state) is 
+	[M M M C C C] v~~~ [_ _ _ _ _ _]
+	*/
 	
 	// Used to print any state.
 	// Also used to check for solution
@@ -97,7 +103,7 @@ public class Main
 		// States traversed are added to list.
 		// State traversal stops when root state is reached
 		// or when it reaches a fork.
-		// ei, a the current state has multiple links.
+		// ei, the current state has multiple links.
 		while(state.getLevel() != 1)
 		{
 			stateList.InsertBefore(state);
@@ -142,28 +148,16 @@ public class Main
 	root == list of states; leaves == list of leaves linked to the last state added to "root".
 	This method takes the initial "root states" and "leaves" to create and return a list of all routes
 	that lead to the solution.
-	
-	HOW IT WORKS:
-	1) Method takes first leaf (first element of "leaves") and generates a "branch" 
-		(list of states that lead to a fork or the root state) using getRoute
-	2) If "branch" leads to fork, repeat step 1 with fork as "leaves" and "branch" as "root"
-	   If "branch" leads to root state, continue
-	3) Attach "branch" to "root" (combines list of states in branch to that of root states)
-	4) Add combined list to "lists" (Keeps track of all routes)
-	5) If current leaf is not the last element in current "leaves", select next leaf,
-		and repeat step 1 with current "leaves" and current "root".
-		Combine current "lists" with the "lists" that results from repeating step 1.
-	   Else return current "lists"
 	   
 	NOTE: "root" initially starts as list of root states.
-		  If step 1 repeats because a fork is reached, 
+		  If Combine() repeats because a fork is reached, 
 		  "branch" becomes the new "root". What happens is that
 		  when root (or initial) state is reached, current branch attaches to current root, 
 		  and that root will attach to its root (if it has one). This is done
 		  recursively.
 	*/
 	
-	// Runs when solutions state is found.
+	// Runs when solution state is found.
 	public ArrayList<List<StateNode>> Combine(List<StateNode> leaves, List<StateNode> root)
 	{
 		ArrayList<List<StateNode>> lists = new ArrayList<List<StateNode>>();
@@ -305,7 +299,6 @@ public class Main
 		
 		if(showLevels) System.out.println("\n\n");
 		
-		//System.out.println(level.GetSize());
 		level.First();
 		
 		//Checks every state in level for the solution state.
