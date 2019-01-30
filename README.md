@@ -12,7 +12,7 @@ RULES:
 5) There are a total of 3 Cannibals and 3 Missionaries
 	   
 	   
-This program solves the classic Missionaries and Cannibals program.
+This program solves the classic Missionaries and Cannibals program.\n
 What makes this program unique is that it can solve the puzzle no matter the constraints.
 
 For example: 
