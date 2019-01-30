@@ -5,7 +5,7 @@ public class StateNode
 {	
 	private static int maxMis;
 	private static int maxCan;
-	private final int boatCap = 3;
+	private final int boatCap = 2;
 	private int boat;
 	private int startMis;
 	private int startCan;
