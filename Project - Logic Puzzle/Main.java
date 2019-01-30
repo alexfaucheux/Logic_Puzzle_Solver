@@ -143,7 +143,7 @@ public class Main
 	Used to find and return list of all routes found in tree. List used to print solutions.
 	
 	Takes two arguments: "leaves" and "root", both of which are linked list of states.
-	"root" == list of states; "leaves" == list of leaves linked to the last state added to the list of root states.
+	"root" == list of states; "leaves" == list of leaves linked to the last state added to "root".
 	This method takes the initial "root" states and "leaves" to create and return a list of all routes
 	that lead to the solution.
 	   
