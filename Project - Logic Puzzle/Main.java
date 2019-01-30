@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 public class Main
 {
-	final static int maxMis = 4;
-	final static int maxCan = 4;
+	final static int maxMis = 3;
+	final static int maxCan = 3;
 	final static int total = maxMis + maxCan;
 	final private List<Integer> loopCheckList = new List<Integer>();
 	final private ArrayList<StateNode> solStates = new ArrayList<StateNode>();
